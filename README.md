@@ -4,7 +4,7 @@ Download Skybox panoramic photos of Matterport houses
 dependences: php, php-curl
 
 How to use:
-If the url is https://my.matterport.com/show/?m=huhpm6maGbT&mls=1 you have to run the script this way: php ./matterport-downloader huhpm6maGbT
+If the url is https://my.matterport.com/show/?m=huhpm6maGbT&mls=1 you have to run the script this way: php ./matterport-downloader.php huhpm6maGbT
 
 You will get all the high res skybox images.
 
