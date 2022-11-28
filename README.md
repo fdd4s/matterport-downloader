@@ -22,10 +22,10 @@ https://github.com/google/spatial-media
 Viewers:
 
 Android: You can watch equirectangular 360º images in Android (including cardboard vr) using: Ricoh Theta App https://play.google.com/store/apps/details?id=com.theta360&hl=en&gl=US
-But you must add the correct 360º Exif Tags before to the equirectangular image using Exiftool https://github.com/exiftool/exiftool in order to open with Ricoh Theta App
+But you must add the right 360º Exif Tags before to the equirectangular image using Exiftool https://github.com/exiftool/exiftool in order to open with Ricoh Theta App.
 
 PC: You can watch skybox (cube faces) and equirectangular 360º images in Linux/Mac/Windows using Panini https://github.com/lazarus-pkgs/panini (no need to include exif tags in order to open with this viewer)
 
-Web Browser: You can watch equirectangular 369º images in Chrome and Firefox using three.js (webgl based): https://github.com/pljhonglu/threejs-panorama https://threejs.org/examples/webgl_panorama_equirectangular.html (no need to include exif tags in the jpg)
+Web Browser: You can watch equirectangular 360º images in Chrome and Firefox using three.js (webgl based): https://github.com/pljhonglu/threejs-panorama https://threejs.org/examples/webgl_panorama_equirectangular.html (no need to include exif tags in the jpg)
 
 You can send feedback, suggestions and questions to fdd4776s@gmail.com
