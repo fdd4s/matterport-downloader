@@ -10,7 +10,7 @@ You will get all the high res skybox images.
 
 If you want convert to equirectangular images you can use "cube2sphere" open source software.
 
-You can create a slideshow of equirectangular panoramic jpg images using FFMPEG open source software (just like a normal slideshow of jpg images), add the tag to the video of 360º panoramic using "spatial-media" open source software and upload to youtube where your slideshow video will be shown as a 360º panoramic video. 
+You can create a slideshow mp4 video of equirectangular panoramic jpg images using FFMPEG open source software (just like a normal slideshow of jpg images), add the tag to the video of 360º panoramic using "spatial-media" open source software and upload to youtube where your slideshow video will be shown as a 360º panoramic video. 
 
 Additional related software:
 https://github.com/Xyene/cube2sphere
