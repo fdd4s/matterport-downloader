@@ -1,6 +1,6 @@
 <?PHP
 
-if (count($argv)!=2)  { echo ("Use <m= ID matterport>\n"); exit(0); }
+if (count($argv)!=2)  { echo ("Use <ID matterport>\n"); exit(0); }
 $id = $argv[1];
 
 $mp = new Mp($id);
