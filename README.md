@@ -12,4 +12,9 @@ If you want convert to equirectangular images you can use "cube2sphere" open sou
 
 You can create a slideshow of equirectangular panoramic jpg images using FFMPEG open source (just like a normal slideshow of jpg images), add the tag to the video of 360º panoramic video using "spatial-media" open source software and upload to youtube where your slideshow video will be shown as a 360º panoramic video. 
 
+Additional related software:
+https://github.com/Xyene/cube2sphere
+https://github.com/FFmpeg/FFmpeg
+https://github.com/google/spatial-media
+
 You can send feedback, suggestions and questions to fdd4776s@gmail.com
