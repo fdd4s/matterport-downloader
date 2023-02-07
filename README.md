@@ -32,6 +32,10 @@ Skybox can be converted to equirectangular format and achieve a higher compatibi
 
 https://github.com/fdd4s/skybox2equirectangular  
 
+Or directly using this tool that merge both projects
+
+https://github.com/fdd4s/matterport-dl-equi  
+
 Equirectangular can be viewed in players like Ricoh Theta for Android https://play.google.com/store/apps/details?id=com.theta360&hl=en&gl=US  
 
 ## Credits
