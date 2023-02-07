@@ -7,9 +7,44 @@ $mp = new Mp($id);
 
 $catalog = $mp->getCatalog();
 
+$sky_size = 0;
 foreach($catalog as $item) {
 	echo("File ".$item."\n");
-	if (	str_existe($item, "high") &&
+	if (	str_existe($item, "/4k/") &&
+		str_existe($item, "jpg")  &&
+		str_existe($item, "skybox")  && 
+		!str_existe($item, "dds") &&
+		!str_existe($item, "zip") &&
+		!str_existe($item, "lased") )
+	{
+		$sky_size = 4;
+		break;
+	}
+}
+
+if ($sky_size==0) {
+	foreach($catalog as $item) {
+		echo("File ".$item."\n");
+		if (	str_existe($item, "/2k/") &&
+			str_existe($item, "jpg")  &&
+			str_existe($item, "skybox")  && 
+			!str_existe($item, "dds") &&
+			!str_existe($item, "zip") &&
+			!str_existe($item, "lased") )
+		{
+			$sky_size = 2;
+			break;
+		}
+	}
+}
+
+$toSearch = "/high/";
+if ($sky_size==2) $toSearch = "/2k/";
+if ($sky_size==4) $toSearch = "/4k/";
+
+foreach($catalog as $item) {
+	echo("File ".$item."\n");
+	if (	str_existe($item, $toSearch) &&
 		str_existe($item, "jpg")  &&
 		str_existe($item, "skybox")  && 
 		!str_existe($item, "dds") &&
@@ -20,6 +55,9 @@ foreach($catalog as $item) {
 		$mp->download($item);
 	}
 }
+
+echo("done\n");
+echo("Support future improvements of this software https://www.buymeacoffee.com/fdd4s\n");
 
 function 	 str_existe($pajar, $aguja)
 {
@@ -37,9 +75,9 @@ class Mp {
 
 	public function Mp($id) {
 		$this->id = $id;
+		$this->referer = "https://my.matterport.com/show/?m=".$this->id;
 		$this->updateUrlBase();
 		$this->updateCatalog();
-		$this->referer = "https://my.matterport.com/show/?m=".$this->id;
 	}
 
 	public function updateCatalog() {
@@ -75,6 +113,9 @@ class Mp {
 		$headers[] = "Accept-Language: en-US,en;q=0.5";
 		$headers[] = "Cookie: mp_mixpanel__c=0";
 
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10); 
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30); 
+
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36");
@@ -88,12 +129,30 @@ class Mp {
 	}
 
 	public function download($file) {
-		$this->updateUrlBase();
-		$url = $this->makeUrl($file);
+		$res = $this->downloadTry($file);
+		if (!$res) { echo("error downloading, trying again\n"); $res = $this->downloadTry($file); } else return;
+		if (!$res) { echo("error downloading, trying again\n"); $res = $this->downloadTry($file); } else return;
+		echo("error downloading\n");
+		exit(0);
+	}
+
+	private function downloadTry($file) {
 		$path = dirname(__FILE__)."/".$this->formatFilename($file);
-		if (file_exists($path)) return;
-		$this->httpDownload($url, $path);
-		
+		if (file_exists($path)) {
+			if (filesize($path)>0) {
+				return true;
+			} else {
+				unlink($path);
+			}
+		}
+		//$this->updateUrlBase();
+		$url = $this->makeUrl($file);
+		$res = $this->httpDownload($url, $path);
+		if ($res==false) {
+			if (file_exists($path)) unlink($path);
+			return false;
+		}
+		return true;
 	}
 
 	private function httpDownload($url, $path) {
@@ -106,14 +165,22 @@ class Mp {
 		$headers[] = "Accept-Language: en-US,en;q=0.5";
 		$headers[] = "origin: https://my.matterport.com";
 
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10); 
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30); 
+
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36");
 		curl_setopt($ch, CURLOPT_FILE, $fp); 
-		curl_exec($ch);  
+		curl_exec($ch);
+
+		$res = false;
+		if(curl_errno($ch)==0) $res = true; else { echo ("error curl ".curl_errno($ch)."\n"); }
 
 		curl_close($ch); 
 		fclose($fp);
+
+		return $res;
 	}
 
 	public function idValid($id) {
@@ -160,7 +227,6 @@ class Mp {
 		}
 		return $res;
 	}
-
-
 }
+
 ?>

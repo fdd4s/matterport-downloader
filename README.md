@@ -1,31 +1,42 @@
-# matterport-downloader
-Download Skybox panoramic photos of Matterport houses
+# matterport downloader
 
-dependences: php, php-curl
+## What does
 
-How to use:
-If the url is https://my.matterport.com/show/?m=huhpm6maGbT&mls=1 you have to run the script this way: php ./matterport-downloader.php huhpm6maGbT
+matterport-downloader downloads Skybox 360 panos photos of Matterport houses
 
-You will get all the high res skybox images.
+## Dependencies
 
-Convert SkyBox to Equirectangular images: If you want convert to equirectangular images you can use "cube2sphere" open source software. https://github.com/Xyene/cube2sphere
+php, php-curl, curl  
 
-Equirectangular is a widely more compatible panorama 360 photos standard than skybox (aka cube faces). e.g: Google Street View uses Equirectangular 360 panoramas as standard.
+This code can run over Linux and Windows  
 
-You can create a slideshow mp4 video of equirectangular panoramic jpg images using FFMPEG open source software (just like a normal slideshow of jpg images), add the tag to the video of 360º panoramic using "spatial-media" open source software and upload to youtube where your slideshow video will be shown as a 360º panoramic video (playable in every youtube supported device, like Virtual Reality glasses). 
+## Usage
 
-Additional related software:
-https://github.com/FFmpeg/FFmpeg
-https://github.com/google/spatial-media
+    $ php ./matterport-downloader.php <matterport id>  
 
+e.g: If the url is https://my.matterport.com/show/?m=huhpm6maGbT&mls=1 you have to run the script this way:  
 
-Viewers:
+    $ php ./matterport-downloader.php huhpm6maGbT  
 
-Android: You can watch equirectangular 360º images in Android (including cardboard vr) using: Ricoh Theta App https://play.google.com/store/apps/details?id=com.theta360&hl=en&gl=US
-But you must add the right 360º Exif Tags before to the equirectangular image using Exiftool https://github.com/exiftool/exiftool in order to open with Ricoh Theta App.
+It will download all the skybox images with the highest quality available (4k, 2k or 1k).  
 
-PC: You can watch skybox (cube faces) and equirectangular 360º images in Linux/Mac/Windows using Panini https://github.com/lazarus-pkgs/panini (no need to include exif tags in order to open with this viewer)
+## Viewers
 
-Web Browser: You can watch equirectangular 360º images in Chrome and Firefox using three.js (webgl based): https://github.com/pljhonglu/threejs-panorama https://threejs.org/examples/webgl_panorama_equirectangular.html (no need to include exif tags in the jpg)
+PC: Linux/Mac/Windows using Panini and opening as Cube Faces: https://github.com/lazarus-pkgs/panini  
 
-You can send feedback, suggestions and questions to fdd4776s@gmail.com
+Web Browser: Chrome and Firefox using three.js (webgl based): https://github.com/mrdoob/three.js/  
+
+## Equirectangular
+
+Skybox can be converted to equirectangular format and achieve a higher compatibility among viewers.  
+
+https://github.com/fdd4s/skybox2equirectangular  
+
+Equirectangular can be viewed in players like Ricoh Theta for Android https://play.google.com/store/apps/details?id=com.theta360&hl=en&gl=US  
+
+## Credits
+
+Created by fdd  
+Send feedback and questions to fdd4776s@gmail.com  
+Support future improvements of this software https://www.buymeacoffee.com/fdd4s  
+All files are public domain https://unlicense.org/  
