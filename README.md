@@ -20,11 +20,15 @@ e.g: If the url is https://my.matterport.com/show/?m=huhpm6maGbT&mls=1 you have 
 
 It will download all the skybox images with the highest quality available (4k, 2k or 1k).  
 
+## Online downloader
+
+https://openpano.rf.gd/download/ can show skybox images of matterport virtual tours  
+
 ## Viewers
 
 PC: Linux/Mac/Windows using Panini and opening as Cube Faces: https://github.com/lazarus-pkgs/panini  
 
-Web Browser: Chrome and Firefox using three.js (webgl based): https://github.com/mrdoob/three.js/  
+Web Browser: Chrome and Firefox: Pannellum (webgl based), self hosted virtual tour, equirectangular and cubemap skybox: https://github.com/mpetroff/pannellum  
 
 ## Equirectangular
 
