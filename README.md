@@ -22,7 +22,7 @@ It will download all the skybox images with the highest quality available (4k, 2
 
 ## Online downloader
 
-https://openpano.rf.gd/download/ can show skybox images of matterport virtual tours  
+https://openpano.rf.gd/download/ shows skybox images of matterport virtual tours, with save web complete option of browser it download all skybox images.
 
 ## Viewers
 
