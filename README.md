@@ -20,9 +20,9 @@ e.g: If the url is https://my.matterport.com/show/?m=huhpm6maGbT&mls=1 you have 
 
 It will download all the skybox images with the highest quality available (4k, 2k or 1k).  
 
-## Online downloader
+## Online downloader version of this script
 
-https://openpano.rf.gd/download/ shows skybox images of matterport virtual tours, with save web complete option of browser it download all skybox images.
+https://openpano.rf.gd/download/ shows skybox images of matterport virtual tours, with the browser option "save web complete" it downloads all skybox images of a matterport virtual tour.
 
 ## Viewers
 
