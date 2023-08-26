@@ -1,6 +1,6 @@
 # matterport downloader
 
-## What does
+## What it does
 
 matterport-downloader downloads Skybox 360 panos photos of Matterport houses
 
