@@ -22,7 +22,7 @@ It will download all the skybox images with the highest quality available (4k, 2
 
 ## Online downloader version of this script
 
-https://openpano.rf.gd/download/ shows skybox images of matterport virtual tours, with the browser option "save web complete" it downloads all skybox images of a matterport virtual tour.
+https://openpanorama.rf.gd/download/ and https://openpano.rf.gd/download/ mirror, it shows skybox images of matterport virtual tours, with the browser option "save web complete" it downloads all skybox images of a matterport virtual tour.
 
 ## Viewers
 
