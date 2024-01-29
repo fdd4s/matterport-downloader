@@ -57,7 +57,6 @@ foreach($catalog as $item) {
 }
 
 echo("done\n");
-echo("Support future improvements of this software https://www.buymeacoffee.com/fdd4s\n");
 
 function 	 str_existe($pajar, $aguja)
 {
